@@ -65,7 +65,7 @@
 
 - (void)showDiscoBallWithAnchor:(ARPlaneAnchor *)anchor onNode:(SCNNode *)node{
     SCNNode *plane = [self planeFromAnchor:anchor];
-    SCNNode *discoBall = [self discoBall];
+    SCNNode *discoBall = [self discoBall:plane];
     
     [plane addChildNode:discoBall];
     [node addChildNode:plane];
@@ -116,13 +116,13 @@
     return planeNode;
 }
 
-- (SCNNode *)discoBall{
-    SCNSphere *sphere = [SCNSphere sphereWithRadius:0.5];
+- (SCNNode *)discoBall:(SCNNode *)node{
+    SCNSphere *sphere = [SCNSphere sphereWithRadius:0.1];
     sphere.firstMaterial.diffuse.contents = [UIImage imageNamed:@"disco"];
     
     SCNNode *sphereNode = [SCNNode nodeWithGeometry:sphere];
-    sphereNode.position = SCNVector3Make(0, 0, 3);
-    
+    //sphereNode.position = SCNVector3Make(0, 0, 3);
+    sphereNode.position = node.position;
     return sphereNode;
 }
 
