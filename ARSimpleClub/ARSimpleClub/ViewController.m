@@ -14,6 +14,7 @@
 @property (nonatomic, strong) SCNScene *scene;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (nonatomic) BOOL planeFound;
+@property (weak, nonatomic) IBOutlet UILabel *recordStatus;
 
 @end
 
@@ -44,6 +45,8 @@
 - (void)setupLabel{
     self.statusLabel.numberOfLines = 0;
     self.statusLabel.text = @"Please Find a Dance Floor";
+    self->_recordStatus.text = @"No Recording";
+    self->_recordStatus.textColor = [UIColor redColor];
 }
 
 - (void)setupSceneView{
@@ -132,7 +135,9 @@
     if([RPScreenRecorder.sharedRecorder isAvailable]){
         [RPScreenRecorder.sharedRecorder startRecordingWithHandler:^(NSError *error){
             if(!error){
-                
+                dispatch_async(dispatch_get_main_queue(), ^(){
+                    self->_recordStatus.text = @"Recording now";
+                });
             }else{
                 
             }
@@ -158,6 +163,10 @@
                 
                 [alertController addAction:discardAction];
                 [alertController addAction:viewAction];
+                
+                dispatch_async(dispatch_get_main_queue(), ^(){
+                    self->_recordStatus.text = @"Stop Recording";
+                });
                 
                 [self presentViewController:alertController animated:YES completion:nil];
             }
