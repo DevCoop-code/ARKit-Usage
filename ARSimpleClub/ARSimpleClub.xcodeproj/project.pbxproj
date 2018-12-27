@@ -15,6 +15,7 @@
 		78CA113221D1C64E00F22714 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78CA113021D1C64E00F22714 /* LaunchScreen.storyboard */; };
 		78CA113521D1C64E00F22714 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA113421D1C64E00F22714 /* main.m */; };
 		78CA113F21D1C64E00F22714 /* ARSimpleClubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA113E21D1C64E00F22714 /* ARSimpleClubTests.m */; };
+		78E553F721D478FA0054C5E3 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E553F621D478FA0054C5E3 /* ReplayKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		78CA113A21D1C64E00F22714 /* ARSimpleClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARSimpleClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CA113E21D1C64E00F22714 /* ARSimpleClubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARSimpleClubTests.m; sourceTree = "<group>"; };
 		78CA114021D1C64E00F22714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78E553F621D478FA0054C5E3 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E553F721D478FA0054C5E3 /* ReplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +71,7 @@
 				78CA112221D1C64C00F22714 /* ARSimpleClub */,
 				78CA113D21D1C64E00F22714 /* ARSimpleClubTests */,
 				78CA112121D1C64C00F22714 /* Products */,
+				78E553F521D478FA0054C5E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +108,14 @@
 				78CA114021D1C64E00F22714 /* Info.plist */,
 			);
 			path = ARSimpleClubTests;
+			sourceTree = "<group>";
+		};
+		78E553F521D478FA0054C5E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78E553F621D478FA0054C5E3 /* ReplayKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

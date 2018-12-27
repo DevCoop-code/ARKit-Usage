@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SceneKit/SceneKit.h>
 #import <ARKit/ARKit.h>
+#import <ReplayKit/ReplayKit.h>
 
 @interface ViewController : UIViewController
 

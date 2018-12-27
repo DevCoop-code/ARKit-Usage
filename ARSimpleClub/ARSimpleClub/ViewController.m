@@ -126,4 +126,43 @@
     return sphereNode;
 }
 
+#pragma mark - Button Action
+
+- (IBAction)startRecording:(UIButton *)sender {
+    if([RPScreenRecorder.sharedRecorder isAvailable]){
+        [RPScreenRecorder.sharedRecorder startRecordingWithHandler:^(NSError *error){
+            if(!error){
+                
+            }else{
+                
+            }
+        }];
+    }
+}
+
+- (IBAction)stopRecording:(UIButton *)sender {
+    [RPScreenRecorder.sharedRecorder stopRecordingWithHandler:^(RPPreviewViewController *previewController, NSError *error){
+        if(!error){
+            if(previewController != nil){
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Recording"
+                                                                                         message:@"Do you want to discard or view your gameplay recording?"
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *discardAction = [UIAlertAction actionWithTitle:@"Discard" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                    [RPScreenRecorder.sharedRecorder discardRecordingWithHandler:^(){
+                        
+                    }];
+                }];
+                UIAlertAction *viewAction = [UIAlertAction actionWithTitle:@"View" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                    [self presentViewController:previewController animated:YES completion:nil];
+                }];
+                
+                [alertController addAction:discardAction];
+                [alertController addAction:viewAction];
+                
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }
+    }];
+}
+
 @end
