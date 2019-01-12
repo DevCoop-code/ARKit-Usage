@@ -11,6 +11,9 @@
 @interface ViewController () <ARSCNViewDelegate>
 
 @property (nonatomic, strong) IBOutlet ARSCNView *sceneView;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UILabel *aimLabel;
+@property (weak, nonatomic) IBOutlet UILabel *notReadyLabel;
 
 @end
 
@@ -22,15 +25,8 @@
 
     // Set the view's delegate
     self.sceneView.delegate = self;
+    self.sceneView.autoenablesDefaultLighting = YES;
     
-    // Show statistics such as fps and timing information
-    self.sceneView.showsStatistics = YES;
-    
-    // Create a new scene
-    SCNScene *scene = [SCNScene sceneNamed:@"art.scnassets/ship.scn"];
-    
-    // Set the scene to the view
-    self.sceneView.scene = scene;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
